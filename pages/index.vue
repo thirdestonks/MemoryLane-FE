@@ -5,9 +5,9 @@
 
 <template>
     <!-- Container for demo purpose -->
-    <div class="bg-slate-500 container my-24 mx-auto md:px-6">
+    <div class=" container mx-auto md:px-6">
         <!-- Section: Design Block -->
-        <section class="mb-32">
+        <section class="my-2">
             <!-- Jumbotron -->
             <div class="container mx-auto text-center lg:text-left xl:px-32">
                 <div class="grid items-center lg:grid-cols-2">
@@ -65,6 +65,18 @@
                                 Vivamus a orci maximus, dignissim ligula a, congue dui. Morbi
                                 et lectus sit amet neque luctus viverra.
                             </p>
+
+                            <div class="mt-4 ml-96 absolute inline-flex  group">
+                                <div
+                                    class="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
+                                </div>
+                                <nuxt-link to="dashboard">
+                                    <a title="Click Hereee!!!"
+                                        class="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                                        role="button">Click Pls
+                                    </a>
+                                </nuxt-link>
+                            </div>
                         </div>
                     </div>
 
