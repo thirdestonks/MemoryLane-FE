@@ -5,16 +5,16 @@
 
 <template>
     <!-- Container for demo purpose -->
-    <div class=" container mx-auto md:px-6">
+    <div class="container mx-auto">
         <!-- Section: Design Block -->
-        <section class="my-2">
-            <!-- Jumbotron -->
+        <section
+        class="bg-center bg-cover bg-no-repeat h-screen bg-[url('https://marketplace.canva.com/EAFTy446Qm4/1/0/1600w/canva-white-grey-minimalist-leaves-shadow-inspirational-desktop-wallpaper-91naEFD-shA.jpg')]">            <!-- Jumbotron -->
             <div class="container mx-auto text-center lg:text-left xl:px-32">
                 <div class="grid items-center lg:grid-cols-2">
                     <div class="mb-12 lg:mb-0">
                         <div
                             class="relative z-[1] block rounded-lg bg-[hsla(0,0%,100%,0.55)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[30px] dark:bg-[hsla(0,0%,5%,0.55)] dark:shadow-black/20 md:px-12 lg:-mr-14">
-                            <h2 class="mb-8 text-3xl font-bold">Burnok Sample</h2>
+                            <h2 class="mb-8 text-3xl font-bold">Memory Lane</h2>
                             <p class="mb-8 pb-2 text-neutral-500 dark:text-neutral-300 lg:pb-0">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
                                 soluta corporis voluptate ab error quam dolores doloremque,
@@ -68,12 +68,12 @@
 
                             <div class="mt-4 ml-96 absolute inline-flex  group">
                                 <div
-                                    class="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
+                                    class="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#cbd8df] via-[#493948] to-[#f5d5d3] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
                                 </div>
                                 <nuxt-link to="dashboard">
                                     <a title="Click Hereee!!!"
                                         class="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-                                        role="button">Click Pls
+                                        role="button">Click Here
                                     </a>
                                 </nuxt-link>
                             </div>
@@ -81,7 +81,7 @@
                     </div>
 
                     <div>
-                        <img src="https://mdbcdn.b-cdn.net/img/new/ecommerce/vertical/117.jpg"
+                        <img src="https://archive.org/download/cyberpunk-2077-portraits-by-anonymous./1631339202516.jpg"
                             class="w-full rounded-lg shadow-lg dark:shadow-black/20" alt="image" />
                     </div>
                 </div>
