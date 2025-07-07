@@ -5,15 +5,15 @@
 
 <template>
     <!-- Container for demo purpose -->
-    <div class="container mx-auto">
+    <div class="w-full">
         <!-- Section: Design Block -->
         <section
-        class="bg-center bg-cover bg-no-repeat h-screen bg-[url('https://marketplace.canva.com/EAFTy446Qm4/1/0/1600w/canva-white-grey-minimalist-leaves-shadow-inspirational-desktop-wallpaper-91naEFD-shA.jpg')]">            <!-- Jumbotron -->
+        class="bg-center bg-cover bg-no-repeat h-screen bg-[url('/img/landing-bg.png')]"><!-- Jumbotron -->
             <div class="container mx-auto text-center lg:text-left xl:px-32">
                 <div class="grid items-center lg:grid-cols-2">
                     <div class="mb-12 lg:mb-0">
                         <div
-                            class="relative z-[1] block rounded-lg bg-[hsla(0,0%,100%,0.55)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[30px] dark:bg-[hsla(0,0%,5%,0.55)] dark:shadow-black/20 md:px-12 lg:-mr-14">
+                            class="relative mt-10 z-[1] block rounded-lg bg-[hsla(0,0%,100%,0.55)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[30px] dark:bg-[hsla(0,0%,5%,0.55)] dark:shadow-black/20 md:px-12 lg:-mr-14">
                             <h2 class="mb-8 text-3xl font-bold">Memory Lane</h2>
                             <p class="mb-8 pb-2 text-neutral-500 dark:text-neutral-300 lg:pb-0">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
@@ -72,7 +72,7 @@
                                 </div>
                                 <nuxt-link to="dashboard">
                                     <a title="Click Hereee!!!"
-                                        class="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                                        class="relative inline-flex items-center justify-center px-20 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
                                         role="button">Click Here
                                     </a>
                                 </nuxt-link>
@@ -81,8 +81,8 @@
                     </div>
 
                     <div>
-                        <img src="https://archive.org/download/cyberpunk-2077-portraits-by-anonymous./1631339202516.jpg"
-                            class="w-full rounded-lg shadow-lg dark:shadow-black/20" alt="image" />
+                            <img src="/img/landing-cover-alt.png"
+                            class="w-full mt-10 rounded-lg shadow-lg dark:shadow-black/20" alt="image" />
                     </div>
                 </div>
             </div>

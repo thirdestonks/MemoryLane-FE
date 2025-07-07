@@ -3,13 +3,14 @@ import type { LoginForm } from "~/interfaces/login-form";
 
 export const useAuthStore = defineStore("auth-store", () => {
     const config = useRuntimeConfig()
-    const apiUrl = config.public.apibaseURL
+    const apiUrl = config.public.apiURL
 
     const user = ref<any>();
 
     const login = async (payload: LoginForm) => {
+           
         const res: any = await apiFetch('/auth/login',{
-            baseUrl: apiUrl,
+            baseURL: apiUrl,
             method: 'POST',
             body: payload
         })
