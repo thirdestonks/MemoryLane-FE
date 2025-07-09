@@ -4,11 +4,9 @@
 
 
 <template>
-    <!-- Container for demo purpose -->
     <div class="w-full">
         <!-- Section: Design Block -->
-        <section
-        class="bg-center bg-cover bg-no-repeat h-screen bg-[url('/img/landing-bg.png')]"><!-- Jumbotron -->
+        <section class="bg-center bg-cover bg-no-repeat h-screen bg-[url('/img/landing-bg.png')]"><!-- Jumbotron -->
             <div class="container mx-auto text-center lg:text-left xl:px-32">
                 <div class="grid items-center lg:grid-cols-2">
                     <div class="mb-12 lg:mb-0">
@@ -66,29 +64,30 @@
                                 et lectus sit amet neque luctus viverra.
                             </p>
 
-                            <div class="mt-4 ml-96 absolute inline-flex  group">
+                            <div class="mt-6 flex justify-center lg:justify-start relative group">
+                                <!-- Glow Background -->
                                 <div
-                                    class="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#cbd8df] via-[#493948] to-[#f5d5d3] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
+                                    class="absolute inset-0 rounded-xl bg-gradient-to-r from-[#cbd8df] via-[#493948] to-[#f5d5d3] blur-lg opacity-60 group-hover:opacity-100 transition-all duration-500">
                                 </div>
-                                <nuxt-link to="dashboard">
-                                    <a title="Click Hereee!!!"
-                                        class="relative inline-flex items-center justify-center px-20 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-                                        role="button">Click Here
+
+                                <!-- Actual Button -->
+                                <nuxt-link to="/dashboard">
+                                    <a class="relative inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-gray-900 rounded-xl shadow-md transition-all duration-300 hover:scale-105 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-700"
+                                        role="button">
+                                        Get Started
                                     </a>
                                 </nuxt-link>
                             </div>
+
                         </div>
                     </div>
-
-                    <div>
-                            <img src="/img/landing-cover-alt.png"
-                            class="w-full mt-10 rounded-lg shadow-lg dark:shadow-black/20" alt="image" />
+                    <div class="flex justify-center lg:mt-0">
+                        <img src="/img/landing-cover-alt.png"
+                            class="w-full max-w-[550px] rounded-lg shadow-lg dark:shadow-black/20 object-contain" />
                     </div>
                 </div>
             </div>
             <!-- Jumbotron -->
         </section>
-        <!-- Section: Design Block -->
     </div>
-    <!-- Container for demo purpose -->
 </template>
