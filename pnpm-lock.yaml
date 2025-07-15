@@ -17,6 +17,9 @@ importers:
       '@vueuse/motion':
         specifier: ^3.0.3
         version: 3.0.3(magicast@0.3.5)(vue@3.5.17(typescript@5.8.3))
+      jwt-decode:
+        specifier: ^4.0.0
+        version: 4.0.0
       nuxt:
         specifier: ^3.17.6
         version: 3.17.6(@parcel/watcher@2.5.1)(@types/node@24.0.10)(@vue/compiler-sfc@3.5.17)(db0@0.3.2)(encoding@0.1.13)(ioredis@5.6.1)(magicast@0.3.5)(rollup@4.44.2)(terser@5.43.1)(typescript@5.8.3)(vite@6.3.5(@types/node@24.0.10)(jiti@2.4.2)(terser@5.43.1)(yaml@2.8.0))(yaml@2.8.0)

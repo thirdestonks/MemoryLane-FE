@@ -2,6 +2,10 @@
 import type { LoginForm } from '~/interfaces/login-form';
 import type { FormErrors } from "~/interfaces/form-errors";
 
+definePageMeta({
+    middleware: 'auth-check',
+})
+
 const router = useRouter()
 //stores
 const authStore = useAuthStore();
