@@ -26,6 +26,7 @@ const viewMemory = (id: number) => {
         </v-card-text>
         <v-card-actions class="px-4 pb-4">
             <v-btn @click="viewMemory(memory.id)" size="small" color="primary" variant="elevated">
+                View Memory
                 <v-icon>
                     mdi-eye
                 </v-icon>
