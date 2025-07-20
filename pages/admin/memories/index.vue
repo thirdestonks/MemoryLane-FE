@@ -1,46 +1,50 @@
 <script setup lang="ts">
 definePageMeta({
-    layout: 'admin-layout',
-});
+  layout: 'admin-layout',
+})
+//store
+const snackbarStore = useSnackBarStore()
+const memoryStore = useMemoryStore()
+const statusChangeDialog = ref(false) //state
+const isFetching = ref<boolean>(false)
+//reactive
+const { memories } = storeToRefs(memoryStore)
+//non-reactive
+const { setSnackBar } = snackbarStore
+const { getMemories } = memoryStore
 
-const memories = [
-    {
-        id: 1,
-        title: 'Beach Sunset',
-        description: 'Captured a stunning sunset while walking the shore.',
-        file: 'sunset.jpg',
-        filePath: '/img/sunset.jpg',
-    },
-    {
-        id: 2,
-        title: 'Mountain Hike',
-        description: 'Reached the summit just in time for the sunrise.',
-        file: 'hike.jpg',
-        filePath: '/img/city.jpg',
-    },
-    {
-        id: 3,
-        title: 'City Lights',
-        description: 'Night out in the city — the skyline was incredible.',
-        file: 'city.jpg',
-        filePath: '/img/city.jpg',
-    },
-    {
-        id: 4,
-        title: 'Family Picnic',
-        description: 'A warm day in the park with laughter and food.',
-        file: 'picnic.jpg',
-        filePath: '/img/city.jpg',
-    },
-];
+const fetchMemories = async () => {
+  isFetching.value = true
+  try {
+    await getMemories()
+
+    setTimeout(() => {
+      isFetching.value = false
+    }, 300)
+  } catch (error: any) {
+    setSnackBar({ text: 'Something went wrong', type: 'error' })
+  }
+}
+
+function openDialog() {
+  statusChangeDialog.value = true
+}
+
+onMounted(async () => {
+  await Promise.all([fetchMemories()])
+})
 </script>
 
 <template>
-    <div>
-        <AdminCardGrid title="Memories">
-            <div class="flex flex-wrap gap-6">
-                <AdminMemoriesCard v-for="memory in memories" :key="memory.id" :memory="memory" />
-            </div>
-        </AdminCardGrid>
-    </div>
+  <div>
+    <AdminCardGrid title="Memories">
+      <v-btn color="primary" variant="flat" prepend-icon="mdi-plus" @click="statusChangeDialog = true" class="mb-4">
+        Add Memory
+      </v-btn>
+      <div class="flex flex-wrap gap-6">
+        <AdminMemoriesCard v-for="memory in memories" :key="memory.id" :memory="memory" />
+      </div>
+    </AdminCardGrid>
+  </div>
+  <AdminMemoriesCreateDialog v-model="statusChangeDialog" @submitted="fetchMemories()" />
 </template>

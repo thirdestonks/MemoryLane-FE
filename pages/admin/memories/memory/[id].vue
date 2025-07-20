@@ -4,15 +4,32 @@ definePageMeta({
 })
 
 const route = useRoute()
+//store
+const memoryStore = useMemoryStore()
+const snackbarStore = useSnackBarStore();
+//non-reactive
+const { getMemory } = memoryStore
+const { setSnackBar } = snackbarStore
+
 const memoryId = route.params.id as string
-const memory = {
-    id: 1,
-    title: 'Beach Sunset',
-    description: 'Captured a stunning sunset while walking the shore.',
-    file: 'sunset.jpg',
-    filePath: '/img/sunset.jpg',
-    created_at: '2025-07-01',
+const memory = ref(null)
+
+const fetchMemory = async (id: string) => {
+    try {
+        const res: any = await getMemory(id)
+        if (res) {
+            memory.value = res
+        } else {
+            setSnackBar({ text: "Memory not found", type: "error" })
+        }
+    } catch (error) {
+        setSnackBar({ text: "Something went wrong", type: "error" })
+    }
 }
+
+onMounted(async () => {
+    await fetchMemory(memoryId)
+})
 </script>
 
 <template>
