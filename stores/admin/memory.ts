@@ -55,6 +55,30 @@ export const useMemoryStore = defineStore("memories-store", () => {
         return res;
     };
 
+    const updateMemory = async (id: number, data: any) => {
+        const res: any = await apiFetch(
+            `/memories/${id}`,
+            {
+                baseURL: apiUrl,
+                method: "PATCH",
+                body: data,
+            }
+        );
+
+        return res;
+    };
+    const deleteMemory = async (id: number) => {
+        const res: any = await apiFetch(
+            `/memories/${id}`,
+            {
+                baseURL: apiUrl,
+                method: "DELETE",
+            }
+        );
+
+        return res;
+    };
+
     return {
         memory,
         memories,
@@ -64,5 +88,7 @@ export const useMemoryStore = defineStore("memories-store", () => {
         getMemories,
         getMemory,
         createMemory,
+        updateMemory,
+        deleteMemory,
     }
 })
