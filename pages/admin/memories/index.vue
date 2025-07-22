@@ -6,6 +6,8 @@ definePageMeta({
 const snackbarStore = useSnackBarStore()
 const memoryStore = useMemoryStore()
 const statusChangeDialog = ref(false) //state
+const memoryToEdit = ref<any>(null) //state
+const editDialog = ref(false) //state
 const isFetching = ref<boolean>(false)
 //reactive
 const { memories } = storeToRefs(memoryStore)
@@ -26,8 +28,9 @@ const fetchMemories = async () => {
   }
 }
 
-function openDialog() {
-  statusChangeDialog.value = true
+function handleEdit(memory: any) {
+  memoryToEdit.value = memory
+  editDialog.value = true
 }
 
 onMounted(async () => {
@@ -42,9 +45,10 @@ onMounted(async () => {
         Add Memory
       </v-btn>
       <div class="flex flex-wrap gap-6">
-        <AdminMemoriesCard v-for="memory in memories" :key="memory.id" :memory="memory" />
+        <AdminMemoriesCard v-for="memory in memories" :key="memory.id" @edit="handleEdit" :memory="memory" />
       </div>
     </AdminCardGrid>
   </div>
   <AdminMemoriesCreateDialog v-model="statusChangeDialog" @submitted="fetchMemories()" />
+  <AdminMemoriesEditDialog v-model="editDialog" :memory="memoryToEdit" @submitted="fetchMemories()" />
 </template>
