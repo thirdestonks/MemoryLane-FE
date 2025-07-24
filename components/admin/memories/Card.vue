@@ -11,7 +11,7 @@ const props = defineProps<{
         deleted_at?: Date | null
     }
 }>()
-const emit = defineEmits(['edit'])
+const emit = defineEmits(['edit', 'delete'])
 
 const router = useRouter()
 const viewMemory = (id: number) => {
@@ -20,6 +20,10 @@ const viewMemory = (id: number) => {
 
 const onEdit = () => {
     emit('edit', props.memory)
+}
+
+const onDelete = () => {
+    emit('delete', props.memory)
 }
 </script>
 
@@ -39,7 +43,7 @@ const onEdit = () => {
                         <v-list-item @click="onEdit">
                             <v-list-item-title>Edit</v-list-item-title>
                         </v-list-item>
-                        <v-list-item @click="onEdit">
+                        <v-list-item @click="onDelete">
                             <v-list-item-title>Delete</v-list-item-title>
                         </v-list-item>
                     </v-list>

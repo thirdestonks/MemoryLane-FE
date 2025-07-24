@@ -7,7 +7,9 @@ const snackbarStore = useSnackBarStore()
 const memoryStore = useMemoryStore()
 const statusChangeDialog = ref(false) //state
 const memoryToEdit = ref<any>(null) //state
+const memoryToDelete = ref<any>(null) //state
 const editDialog = ref(false) //state
+const deleteDialog = ref(false) //state
 const isFetching = ref<boolean>(false)
 //reactive
 const { memories } = storeToRefs(memoryStore)
@@ -33,6 +35,11 @@ function handleEdit(memory: any) {
   editDialog.value = true
 }
 
+function handleDelete(memory: any) {
+  memoryToDelete.value = memory
+  deleteDialog.value = true
+}
+
 onMounted(async () => {
   await Promise.all([fetchMemories()])
 })
@@ -45,10 +52,12 @@ onMounted(async () => {
         Add Memory
       </v-btn>
       <div class="flex flex-wrap gap-6">
-        <AdminMemoriesCard v-for="memory in memories" :key="memory.id" @edit="handleEdit" :memory="memory" />
+        <AdminMemoriesCard v-for="memory in memories" :key="memory.id"
+        @edit="handleEdit" @delete="handleDelete" :memory="memory" />
       </div>
     </AdminCardGrid>
   </div>
   <AdminMemoriesCreateDialog v-model="statusChangeDialog" @submitted="fetchMemories()" />
   <AdminMemoriesEditDialog v-model="editDialog" :memory="memoryToEdit" @submitted="fetchMemories()" />
+  <AdminMemoriesDeleteDialog v-model="deleteDialog" :memory="memoryToDelete" @submitted="fetchMemories()" />
 </template>
