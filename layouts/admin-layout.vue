@@ -3,8 +3,9 @@ import layout from '@/constants/admin/layout'
 import { useDisplay } from 'vuetify'
 
 const authStore = useAuthStore()
-const { auth } = storeToRefs(authStore)
 const { logout } = authStore;
+
+const auth: any = authDecode();
 
 const display = useDisplay()
 const isMobile = computed(() => display.mdAndDown.value)
@@ -40,8 +41,8 @@ async function signOut() {
           <div class="m-6 text-center">
             <v-avatar size="80"
               image="https://t4.ftcdn.net/jpg/00/64/67/27/360_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg" />
-            <p class="mt-4 text-sm uppercase font-bold">Dummy Name</p>
-            <p class="text-xs uppercase">Admin</p>
+            <p class="mt-4 text-sm uppercase font-bold">{{ auth.name }}</p>
+            <p class="text-xs uppercase">{{ auth.role }}</p>
           </div>
           <v-divider />
         </template>

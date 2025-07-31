@@ -1,3 +1,14 @@
+<script setup lang="ts">
+const authStore = useAuthStore()
+const { logout } = authStore
+
+const auth: any = authDecode();
+
+async function signOut() {
+  await logout()
+}
+</script>
+
 <template>
   <aside class="w-64 bg-white shadow-md rounded-r-2xl p-6 flex flex-col justify-between">
     <!-- Profile -->
@@ -6,14 +17,14 @@
         <img src="/img/profilePicture.jpg" alt="avatar" />
       </v-avatar>
       <div class="text-center mb-8">
-        <p class="font-semibold text-sm text-gray-800">Jonathan Roy</p>
-        <p class="text-xs text-gray-500">User</p>
+        <p class="font-semibold text-sm text-gray-800">{{ auth.name }}</p>
+        <p class="text-xs uppercase text-gray-500">{{auth.role}}</p>
       </div>
 
       <!-- Nav -->
       <div class="w-full flex flex-col items-center">
         <nav class="flex flex-col gap-4">
-          <NuxtLink to="/user" class="sidebar-link">
+          <NuxtLink to="/user/dashboard" class="sidebar-link">
             <v-icon size="18">mdi-view-dashboard</v-icon>
             <span>Dashboard</span>
           </NuxtLink>
@@ -27,19 +38,17 @@
           </NuxtLink>
         </nav>
       </div>
-
     </div>
     <!-- Logout -->
     <div class="mt-6">
       <div class="w-full hover:bg-red-100 transition duration-200 rounded-b-2xl">
-        <NuxtLink to="/logout"
-          class="flex items-center justify-center gap-2 w-full py-4 text-sm font-medium text-red-500 hover:text-red-700">
-          <v-icon size="18">mdi-logout</v-icon>
-          <span>Logout</span>
-        </NuxtLink>
+        <div @click="signOut" role="button" tabindex="0"
+          class="cursor-pointer flex items-center justify-center gap-2 w-full py-4 text-sm font-medium text-red-500 hover:text-red-700">
+          <v-icon class="text-red-500" size="18">mdi-logout</v-icon>
+          <span class="text-red-500">Logout</span>
+        </div>
       </div>
     </div>
-
   </aside>
 </template>
 
