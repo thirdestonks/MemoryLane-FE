@@ -29,7 +29,12 @@ async function signin() {
     setSnackBar({ text: `Login Success!`, type: 'success' });
     isLoading.value = false;
     setTimeout(() => {
-      router.push('/admin/dashboard');
+      const auth: any = authDecode();
+      if (auth.role === 'admin') {
+        router.push('/admin/dashboard');
+      } else {
+        router.push('/user/dashboard');
+      }
     }, 1500);
   } catch (error: any) {
     if (error.response === undefined) {
