@@ -41,12 +41,9 @@ const deleteMemory = (id: number) => {
     </div>
 
     <!-- Memory Cards Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div
-        v-for="memory in memories"
-        :key="memory.id"
-        class="bg-white rounded-xl shadow-lg p-4 flex flex-col justify-between"
-      >
+    <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+      <div v-for="memory in memories" :key="memory.id"
+        class="bg-white rounded-xl shadow-lg p-4 flex flex-col justify-between">
         <v-img :src="memory.filePath" height="200" class="rounded-lg mb-4" />
         <h3 class="text-lg font-semibold">{{ memory.title }}</h3>
         <p class="text-sm text-gray-600 mt-2">{{ memory.description }}</p>
